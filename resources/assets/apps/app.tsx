@@ -1,3 +1,4 @@
+declare const wp: any;
 const { render } = wp.element;
 
 import '@mantine/core/styles.css';
@@ -6,6 +7,7 @@ import 'mantine-datatable/styles.css';
 
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import * as React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Demo } from './components/Demo';
 

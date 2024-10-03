@@ -3,6 +3,7 @@ import { showNotification } from '@mantine/notifications';
 import { DataTable } from 'mantine-datatable';
 import { useAjax } from './use-ajax';
 
+import * as React from 'react';
 import classes from './Demo.module.scss';
 
 export const Demo = () => {

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "outDir": "./public/apps",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./declaration.d.ts"
+        ],
+        "moduleResolution": "node"
+    },
+    "include": [
+        "resources/assets/apps"
+    ]
+}
