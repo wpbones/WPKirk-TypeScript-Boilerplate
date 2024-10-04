@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: WP Kirk Mantine Boilerplate
+ * Plugin Name: WP Kirk Typescript Boilerplate
  * Plugin URI: https://github.com/wpbones/WPKirk-Mantine-Boilerplate
  * Description: WP Bones template WordPress plugin
  * Version: 1.6.0
@@ -17,7 +17,7 @@
  */
 
 if (!defined('ABSPATH')) {
-  exit();
+    exit();
 }
 
 /*

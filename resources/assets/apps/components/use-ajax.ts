@@ -1,6 +1,20 @@
 import useSWR from 'swr';
 
-const post = async action => {
+declare global {
+  interface Window {
+    ajaxurl: string;
+  }
+}
+
+// Assuming WPKirkMantine is a global variable, you can declare it like this:
+declare const WPKirkMantine: { nonce: string };
+
+interface PostResponse {
+  // Define the structure of the response here
+  [key: string]: any;
+}
+
+const post = async (action: string): Promise<PostResponse> => {
   const res = await fetch(window.ajaxurl, {
     method: 'POST',
     body: new URLSearchParams({
@@ -22,5 +36,5 @@ export function useAjax() {
   if (isLoading) return { isLoading };
 
   // render data
-  return { data, error: null, isLoading: false };
+  return { data, error: null as any, isLoading: false };
 }

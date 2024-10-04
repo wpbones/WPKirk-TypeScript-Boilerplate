@@ -11,14 +11,16 @@ export const Demo = () => {
     <Center w={'100%'} h={'80dvh'}>
       <Paper p={'md'} radius={'lg'} shadow="md" withBorder w={'50%'}>
         <Stack>
-          <div className={classes.title}>Your Header (without Router)</div>
+          <div className={classes.title}>
+            Typescript Boilerplate | Your Header (without Router)
+          </div>
 
           <Tabs
             orientation="vertical"
             variant="outline"
             defaultValue="first-tab">
             <Tabs.List>
-              <Tabs.Tab value="first-tab">First Tab</Tabs.Tab>
+              <Tabs.Tab value="first-tab">First Tab Click Here</Tabs.Tab>
             </Tabs.List>
 
             <Tabs.Panel value="first-tab" px="md">
@@ -46,7 +48,7 @@ export function GettingStartedExample() {
       striped
       highlightOnHover
       // provide data
-      records={data}
+      records={Array.isArray(data) ? data : []}
       // define columns
       columns={[
         {
