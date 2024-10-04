@@ -11,9 +11,9 @@
 */
 
 return [
-  'wp_kirk_mantine_slug_menu' => [
-    'page_title' => 'WP Kirk Mantine',
-    'menu_title' => 'WP Kirk Mantine',
+  'wp_kirk_slug_menu' => [
+    'page_title' => 'WP Kirk Typescript',
+    'menu_title' => 'WP Kirk Typescript',
     'capability' => 'read',
     'icon' => 'dashicons-lightbulb',
     'items' => [
