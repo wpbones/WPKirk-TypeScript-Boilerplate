@@ -12,10 +12,10 @@
 
 return [
   'wp_kirk_slug_menu' => [
-    'page_title' => 'WP Kirk Typescript',
-    'menu_title' => 'WP Kirk Typescript',
+    'page_title' => 'Typescript',
+    'menu_title' => 'Typescript',
     'capability' => 'read',
-    'icon' => 'dashicons-lightbulb',
+    'icon' => 'wpbones-logo-menu.png',
     'items' => [
       [
         'page_title' => 'Main View',
