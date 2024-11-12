@@ -1,5 +1,6 @@
 import { Box, Center, Paper, Stack, Tabs } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
+import { __ } from '@wordpress/i18n';
 import { DataTable } from 'mantine-datatable';
 import { useAjax } from './use-ajax';
 
@@ -20,7 +21,9 @@ export const Demo = () => {
             variant="outline"
             defaultValue="first-tab">
             <Tabs.List>
-              <Tabs.Tab value="first-tab">First Tab Click Here</Tabs.Tab>
+              <Tabs.Tab value="first-tab">
+                {__('First Tab Click Here', 'wp-kirk')}
+              </Tabs.Tab>
             </Tabs.List>
 
             <Tabs.Panel value="first-tab" px="md">
@@ -35,8 +38,6 @@ export const Demo = () => {
 
 export function GettingStartedExample() {
   const { data, error, isLoading } = useAjax();
-
-  console.log('!!!!', { data, error, isLoading });
 
   return (
     <DataTable
