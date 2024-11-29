@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WP Kirk Typescript Boilerplate
- * Plugin URI: https://github.com/wpbones/WPKirk-Mantine-Boilerplate
+ * Plugin URI: https://github.com/wpbones/WPKirk-Typescript-Boilerplate
  * Description: WP Bones template WordPress plugin
  * Version: 1.8.0
  * Requires at least: 6.2
@@ -17,7 +17,7 @@
  */
 
 if (!defined('ABSPATH')) {
-    exit();
+  exit();
 }
 
 /*
