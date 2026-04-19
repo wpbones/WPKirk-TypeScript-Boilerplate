@@ -708,7 +708,7 @@ namespace Bones {
   define('WPBONES_MINIMAL_PHP_VERSION', '7.4');
 
   /* MARK: The WP Bones command line version. */
-  define('WPBONES_COMMAND_LINE_VERSION', '1.11.1');
+  define('WPBONES_COMMAND_LINE_VERSION', '2.0.0');
 
   use Bones\SemVer\Exceptions\InvalidVersionException;
   use Bones\SemVer\Version;
@@ -3200,6 +3200,25 @@ namespace Bones {
 
       if (!preg_match('/^[a-z][a-z0-9-]*$/', $appName)) {
         $this->error('Invalid app name. Use lowercase letters, digits, and dashes (must start with a letter).');
+        return;
+      }
+
+      // Names that collide with scripts WordPress core registers. If we let
+      // the user pick one of these, wp_enqueue_script silently skips our
+      // bundle because the handle is already taken and the app never mounts
+      // in the browser. Block the name up-front instead of letting the user
+      // debug a ghost bug.
+      $reservedHandles = [
+        'dashboard', 'post', 'postbox', 'common', 'user', 'user-profile',
+        'utils', 'admin-bar', 'admin-comments', 'media-upload', 'media-views',
+        'jquery', 'jquery-core', 'jquery-ui-core', 'backbone', 'underscore',
+        'react', 'react-dom', 'react-jsx-runtime',
+        'wp-api', 'wp-element', 'wp-components', 'wp-data', 'wp-hooks', 'wp-i18n',
+        'wp-util', 'wp-a11y', 'wp-date',
+      ];
+      if (in_array($appName, $reservedHandles, true)) {
+        $this->error("'{$appName}' collides with a reserved WordPress script handle — wp_enqueue_script would silently drop your bundle.");
+        $this->line(" Pick a different name, e.g. {$appName}-app, my-{$appName}, or a plugin-specific prefix.");
         return;
       }
 
