@@ -81,9 +81,27 @@ const Badge = ({ tone, children }: { tone: 'ok' | 'warn' | 'info'; children: Rea
 };
 
 const KV = ({ label, value }: { label: string; value: ReactNode }) => (
-  <div style={{ display: 'flex', gap: 8, fontSize: 13, margin: '4px 0' }}>
-    <span style={{ color: '#646970', minWidth: 90 }}>{label}</span>
-    <span style={{ fontFamily: 'ui-monospace, Menlo, monospace' }}>{value}</span>
+  <div
+    style={{
+      display: 'flex',
+      gap: 8,
+      fontSize: 13,
+      margin: '4px 0',
+      alignItems: 'flex-start',
+    }}
+  >
+    <span style={{ color: '#646970', minWidth: 90, flexShrink: 0 }}>{label}</span>
+    <span
+      style={{
+        fontFamily: 'ui-monospace, Menlo, monospace',
+        flex: 1,
+        minWidth: 0,
+        overflowWrap: 'anywhere',
+        wordBreak: 'break-word',
+      }}
+    >
+      {value}
+    </span>
   </div>
 );
 
@@ -184,17 +202,17 @@ const App = () => {
           title={__('Utility types', 'wp-kirk')}
           hint="updateSettings(current, patch: Partial<Settings>): Readonly<Settings>"
         >
-          <KV label="before" value={JSON.stringify(baseSettings)} />
+          <KV label="before" value={JSON.stringify(baseSettings, null, 2)} />
           <KV
             label="patch"
             value={
               <>
                 <Badge tone="info">Partial&lt;Settings&gt;</Badge>{' '}
-                {`{ debug: true, maxRetries: 5 }`}
+                <span>{`{ debug: true, maxRetries: 5 }`}</span>
               </>
             }
           />
-          <KV label="after" value={JSON.stringify(nextSettings)} />
+          <KV label="after" value={JSON.stringify(nextSettings, null, 2)} />
           <KV
             label="frozen?"
             value={<Badge tone="ok">{String(Object.isFrozen(nextSettings))}</Badge>}
