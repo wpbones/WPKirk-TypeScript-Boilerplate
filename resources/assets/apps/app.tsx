@@ -128,10 +128,7 @@ const App = () => {
           marginTop: 16,
         }}
       >
-        <Card
-          title={__('Type guard', 'wp-kirk')}
-          hint="isPluginInfo(value): value is PluginInfo"
-        >
+        <Card title={__('Type guard', 'wp-kirk')} hint="isPluginInfo(value): value is PluginInfo">
           {state.status === 'success' ? (
             <>
               <div style={{ marginBottom: 8 }}>
@@ -184,9 +181,7 @@ const App = () => {
         >
           <KV
             label="current"
-            value={
-              <Badge tone={state.status === 'success' ? 'ok' : 'warn'}>{state.status}</Badge>
-            }
+            value={<Badge tone={state.status === 'success' ? 'ok' : 'warn'}>{state.status}</Badge>}
           />
           <KV
             label="narrowed"
